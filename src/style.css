@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(230, 230, 230);
+}
+
+.gallery {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+        display: flex;
+    flex-wrap: wrap;
+   
+    justify-content: center;
+}
+
+.list{
+    flex-basis: calc((100% - 2 * 30px) / 2);
+    text-align: center;
+}
+
+.search-form{
+        margin-bottom: 50px;
+        text-align: center;
+}
+
+.load-mor{
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(106, 106, 255);
+}
+
+.stats{
+    display: inline-flex;
+    
+}
+
+.stats-item{
+        margin-right: 50px;
+}
+
+.reset{
+    display: none;
+}
