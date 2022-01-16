@@ -9,7 +9,7 @@ const openModal = document.querySelector('.lightbox');
 const imgGallery = document.querySelector('.lightbox__image');
 const btnCloseModal = document.querySelector('[data-action="close-lightbox"]');
 const message = document.querySelector('.message');
-
+// const none = document.querySelector('.spinner-none');
 searchForm.addEventListener('submit', onSearch);
 loadMor.addEventListener('click', onloadMor);
 btnCloseModal.addEventListener('click', onCloseModalClick);
@@ -23,7 +23,6 @@ function onSearch(e) {
   newsApiService.query = e.currentTarget.elements.query.value;
   newsApiService.resetPage();
   newsApiService.fetchArticles().then(appMarkup);
-  
 }
 
 function onloadMor() {
@@ -31,9 +30,8 @@ function onloadMor() {
 }
 
 function appMarkup(hits) {
-
   hitList = [...hitList, ...hits];
-  
+
   addGallery.insertAdjacentHTML('beforeend', template(hits));
   setTimeout(() => {
     addGallery.scrollIntoView({
@@ -54,7 +52,6 @@ function appMarkup(hits) {
       '<p class="style_message">Зображення по вашому запиту закінчились</p>'
     );
   }
-  
 }
 
 function clearRequest() {
@@ -71,34 +68,36 @@ function onOpenModal(e) {
   }
 
   openModal.classList.add('is-open');
-  window.addEventListener('keydown', onkeydown)
+  window.addEventListener('keydown', onkeydown);
   imgGallery.src = e.target.dataset.src;
 }
 
 function onCloseModalClick() {
   imgGallery.src = '';
- 
+
   openModal.classList.remove('is-open');
-  
-};
+}
 
 // =====================================================================
 
-function onkeydown(e){
+function onkeydown(e) {
   if (e.code === 'ArrowRight') {
     toSlideRight();
-} else if(e.code === 'ArrowLeft'){toSlideLeft();} else if (e.code === 'Escape') {
+  } else if (e.code === 'ArrowLeft') {
+    toSlideLeft();
+  } else if (e.code === 'Escape') {
     onCloseModalClick();
-  } else {null}
-};
+  } else {
+    null;
+  }
+}
 
 function toSlideRight() {
   const lengthArray = hitList.length;
   for (let i = 0; i < lengthArray; i += 1) {
     if (imgGallery.getAttribute('src') === hitList[i].largeImageURL) {
-      
-      imgGallery.setAttribute('src', hitList[i + 1].largeImageURL)
-      return
+      imgGallery.setAttribute('src', hitList[i + 1].largeImageURL);
+      return;
     }
   }
 }
@@ -107,10 +106,8 @@ function toSlideLeft() {
   const lengthArray = hitList.length;
   for (let i = 0; i < lengthArray; i += 1) {
     if (imgGallery.getAttribute('src') === hitList[i].largeImageURL) {
-      
-      imgGallery.setAttribute('src', hitList[i - 1].largeImageURL)
-      return
+      imgGallery.setAttribute('src', hitList[i - 1].largeImageURL);
+      return;
     }
   }
 }
-
