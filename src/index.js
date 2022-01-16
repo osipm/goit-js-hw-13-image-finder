@@ -87,7 +87,9 @@ function onCloseModalClick() {
 function onkeydown(e){
   if (e.code === 'ArrowRight') {
     toSlideRight();
-} else if(e.code === 'ArrowLeft'){toSlideLeft();} else {null}
+} else if(e.code === 'ArrowLeft'){toSlideLeft();} else if (e.code === 'Escape') {
+    onCloseModalClick();
+  } else {null}
 };
 
 function toSlideRight() {
@@ -115,9 +117,4 @@ console.log(hitList)
     }
   }
 }
-
-function onEscKeyPress(eve) {
-  if (eve.code === 'Escape') {
-    onCloseModalClick();
-  }
 
