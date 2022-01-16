@@ -26,7 +26,6 @@ function onSearch(e) {
   
 }
 
-
 function onloadMor() {
   newsApiService.fetchArticles().then(appMarkup);
 }
@@ -58,7 +57,6 @@ function appMarkup(hits) {
   
 }
 
-
 function clearRequest() {
   addGallery.innerHTML = '';
 }
@@ -77,7 +75,6 @@ function onOpenModal(e) {
   imgGallery.src = e.target.dataset.src;
 }
 
-
 function onCloseModalClick() {
   imgGallery.src = '';
  
@@ -86,8 +83,6 @@ function onCloseModalClick() {
 };
 
 // =====================================================================
-
-
 
 function onkeydown(e){
   if (e.code === 'ArrowRight') {
@@ -108,12 +103,6 @@ console.log(hitList)
   }
 }
 
-
-
-
-
-
-
 function toSlideLeft() {
   const lengthArray = hitList.length;
 console.log(hitList)
@@ -127,19 +116,8 @@ console.log(hitList)
   }
 }
 
-// / if (e.code === 'ArrowRight') {
-  //   // e.numberObject +=1;
-  //   // console.log(e.key) назва кнопок
+function onEscKeyPress(eve) {
+  if (eve.code === 'Escape') {
+    onCloseModalClick();
+  }
 
-  
-  // }
-// index.js:80 ArrowRight
-// ArrowLeft
-
-// function onEscKeyPress(eve) {
-//   if (eve.code === 'Escape') {
-//     onCloseModalClick();
-//   }
-
-// var array = [2, 5, 9];
-// array.indexOf(2);
