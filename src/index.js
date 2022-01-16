@@ -94,8 +94,6 @@ function onkeydown(e){
 
 function toSlideRight() {
   const lengthArray = hitList.length;
-console.log(hitList)
-
   for (let i = 0; i < lengthArray; i += 1) {
     if (imgGallery.getAttribute('src') === hitList[i].largeImageURL) {
       
@@ -107,8 +105,6 @@ console.log(hitList)
 
 function toSlideLeft() {
   const lengthArray = hitList.length;
-console.log(hitList)
-
   for (let i = 0; i < lengthArray; i += 1) {
     if (imgGallery.getAttribute('src') === hitList[i].largeImageURL) {
       
