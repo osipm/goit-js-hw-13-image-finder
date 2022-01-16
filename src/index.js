@@ -92,7 +92,7 @@ function onCloseModalClick() {
 function onkeydown(e){
   if (e.code === 'ArrowRight') {
     toSlideRight();
-}else{null}
+} else if(e.code === 'ArrowLeft'){toSlideLeft();} else {null}
 };
 
 
@@ -107,6 +107,25 @@ console.log(hitList)
     if (imgGallery.getAttribute('src') === hitList[i].largeImageURL) {
       
       imgGallery.setAttribute('src', hitList[i + 1].largeImageURL)
+      return
+    }
+  }
+}
+
+
+
+
+
+
+
+function toSlideLeft() {
+  const lengthArray = hitList.length;
+console.log(hitList)
+
+  for (let i = 0; i < lengthArray; i -= 1) {
+    if (imgGallery.getAttribute('src') === hitList[i].largeImageURL) {
+      
+      imgGallery.setAttribute('src', hitList[i - 1].largeImageURL)
       return
     }
   }
