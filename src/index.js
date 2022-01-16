@@ -95,10 +95,6 @@ function onkeydown(e){
 } else if(e.code === 'ArrowLeft'){toSlideLeft();} else {null}
 };
 
-
-
-
-
 function toSlideRight() {
   const lengthArray = hitList.length;
 console.log(hitList)
@@ -122,7 +118,7 @@ function toSlideLeft() {
   const lengthArray = hitList.length;
 console.log(hitList)
 
-  for (let i = 0; i < lengthArray; i -= 1) {
+  for (let i = 0; i < lengthArray; i += 1) {
     if (imgGallery.getAttribute('src') === hitList[i].largeImageURL) {
       
       imgGallery.setAttribute('src', hitList[i - 1].largeImageURL)
